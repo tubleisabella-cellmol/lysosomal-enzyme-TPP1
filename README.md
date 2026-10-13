@@ -16,11 +16,11 @@ TPP1 is a lysosomal serine protease. Inside the lysosome it removes tripeptides 
 
 **Figure 1.** Amino acid composition of TPP1.
 
-![Figure 1: amino acid composition](figures/TPP1_amino_acid_composition.png)
+![Figure 1: amino acid composition](figure/TPP1_amino_acid_composition.png)
 
 **Figure 2.** Positions of potential N-glycosylation motifs (N-X-S/T, X is not P) along TPP1.
 
-![Figure 2: potential N-glycosylation motifs](figures/TPP1_potential_N_glycosylation.png)
+![Figure 2: potential N-glycosylation motifs](figure/TPP1_potential_N_glycosylation.png)
 
 ## Answers
 
