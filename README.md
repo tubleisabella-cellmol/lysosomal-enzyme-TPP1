@@ -3,7 +3,9 @@
 ## Isabella Tuble - A - III
 
 **Enzyme name:** Tripeptidyl-peptidase 1 (also called CLN2)
+
 **Gene symbol:** TPP1
+
 **NCBI protein record:** [NP_000382.3](https://www.ncbi.nlm.nih.gov/protein/NP_000382.3)
 
 ## Function
