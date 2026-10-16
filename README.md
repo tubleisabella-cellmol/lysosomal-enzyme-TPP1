@@ -111,11 +111,11 @@ Files saved in data/, results/, and figures/.
 
 **Figure 1.** Amino acid composition of TPP1. Leucine has the highest count, followed by serine, glycine, proline and valine, which matches the console output.
 
-![Figure 1: amino acid composition](figures/TPP1_amino_acid_composition.png)
+![Figure 1: amino acid composition](figure/TPP1_amino_acid_composition.png)
 
 **Figure 2.** Positions of the 5 potential N-glycosylation motifs (N-X-S/T, X is not P) along the 563-residue protein. All five lie in the middle to C-terminal part of the sequence, and two of them (positions 210 and 222) are close together.
 
-![Figure 2: potential N-glycosylation motifs](figures/TPP1_potential_N_glycosylation.png)
+![Figure 2: potential N-glycosylation motifs](figure/TPP1_potential_N_glycosylation.png)
 
 ---
 
