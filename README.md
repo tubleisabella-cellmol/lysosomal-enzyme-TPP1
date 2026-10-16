@@ -1,26 +1,121 @@
 # Lysosomal enzyme analysis: Tripeptidyl-peptidase 1 (TPP1)
 
-## Isabella Tuble, A-III
+## Isabella Tuble - A - III
 
 **Enzyme name:** Tripeptidyl-peptidase 1 (also called CLN2)
-
 **Gene symbol:** TPP1
-
 **NCBI protein record:** [NP_000382.3](https://www.ncbi.nlm.nih.gov/protein/NP_000382.3)
 
 ## Function
 
 TPP1 is a lysosomal serine protease. Inside the lysosome it removes tripeptides (three amino acids at a time) from the N-terminus of proteins and peptides, helping break them down into pieces the cell can recycle. It is made as an inactive precursor and is activated in the acidic lysosome.
 
-## Figures
+## Repository contents
 
-**Figure 1.** Amino acid composition of TPP1.
+| Path | Description |
+|---|---|
+| `lysosomal_enzyme_analysis.r` | R script used for the whole analysis |
+| `data/TPP1.fasta` | Protein sequence downloaded from NCBI by the script |
+| `results/TPP1_summary.csv` | Protein length and number of possible motifs |
+| `results/TPP1_amino_acid_counts.csv` | Counts and percentages of each amino acid |
+| `results/TPP1_motif_positions.csv` | Positions and sequences of N-X-S/T motifs |
+| `figures/TPP1_amino_acid_composition.png` | Figure 1 |
+| `figures/TPP1_potential_N_glycosylation.png` | Figure 2 |
 
-![Figure 1: amino acid composition](figure/TPP1_amino_acid_composition.png)
+---
 
-**Figure 2.** Positions of potential N-glycosylation motifs (N-X-S/T, X is not P) along TPP1.
+## Workflow
 
-![Figure 2: potential N-glycosylation motifs](figure/TPP1_potential_N_glycosylation.png)
+### Step 1. Select the enzyme and find the accession
+
+I chose **TPP1** from the list of protease genes. On the NCBI Protein database (https://www.ncbi.nlm.nih.gov/protein/) I searched `TPP1 Homo sapiens` and selected a full-length human RefSeq record (NP_ accession) instead of a partial sequence.
+
+- Gene: TPP1
+- Enzyme: Tripeptidyl-peptidase 1
+- Accession: **NP_000382.3**
+
+### Step 2. Set up R
+
+I installed the required packages once in the R Console:
+
+```r
+install.packages(c("rentrez", "ggplot2"))
+```
+
+Then I edited only the first two lines of the script:
+
+```r
+gene <- "TPP1"
+accession <- "NP_000382.3"
+```
+
+### Step 3. Download the sequence from NCBI using R
+
+The script downloads the sequence directly from NCBI with the `rentrez` package (`entrez_fetch`), then saves it to `data/TPP1.fasta`. I did not copy the sequence by hand.
+
+To confirm that the file came from NCBI, I printed the first lines of the saved file in R:
+
+```r
+cat(head(readLines("data/TPP1.fasta"), 4), sep = "\n")
+```
+
+Output:
+
+```
+PASTE THE OUTPUT OF THE COMMAND ABOVE HERE
+```
+
+The first line is the FASTA header from NCBI. It contains the accession NP_000382.3.
+
+### Step 4. Run the analysis script
+
+I ran the whole script (`lysosomal_enzyme_analysis.r`) in RStudio, with the project folder as the working directory. The script finished without errors and printed:
+
+```
+Downloading NP_000382.3 from NCBI Protein...
+
+Analysis complete for TPP1 (NP_000382.3)
+  gene   accession length_amino_acids potential_N_glycosylation_motifs
+1 TPP1 NP_000382.3                563                                5
+
+Five most common amino acids:
+ amino_acid count percent
+          L    63   11.19
+          S    58   10.30
+          G    53    9.41
+          P    44    7.82
+          V    41    7.28
+
+Files saved in data/, results/, and figures/.
+```
+
+### Step 5. Results
+
+**Summary** (`results/TPP1_summary.csv`): the protein is **563 amino acids** long and has **5** potential N-glycosylation motifs.
+
+**Most common amino acids** (`results/TPP1_amino_acid_counts.csv` has all 20): leucine (L), serine (S), glycine (G), proline (P) and valine (V), shown in the console output above.
+
+**Potential N-glycosylation motifs** (`results/TPP1_motif_positions.csv`). The position is the location of the asparagine (N) in the motif:
+
+| Position | Motif |
+|---|---|
+| 210 | NLT |
+| 222 | NNS |
+| 286 | NIS |
+| 313 | NES |
+| 443 | NAS |
+
+### Step 6. Figures
+
+**Figure 1.** Amino acid composition of TPP1. Leucine has the highest count, followed by serine, glycine, proline and valine, which matches the console output.
+
+![Figure 1: amino acid composition](figures/TPP1_amino_acid_composition.png)
+
+**Figure 2.** Positions of the 5 potential N-glycosylation motifs (N-X-S/T, X is not P) along the 563-residue protein. All five lie in the middle to C-terminal part of the sequence, and two of them (positions 210 and 222) are close together.
+
+![Figure 2: potential N-glycosylation motifs](figures/TPP1_potential_N_glycosylation.png)
+
+---
 
 ## Answers
 
