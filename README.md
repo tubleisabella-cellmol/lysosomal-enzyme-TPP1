@@ -91,7 +91,7 @@ Five most common amino acids:
           P    44    7.82
           V    41    7.28
 
-Files saved in data/, results/, and figures/.
+Files saved in data/, results/, and figure/.
 ```
 
 ### Step 5. Results
